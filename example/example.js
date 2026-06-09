@@ -1,6 +1,7 @@
 import {print} from '@putout/printer';
 import {traverse} from '@putout/babel';
 import {parseMarkdown, printMarkdown} from '../lib/makar.js';
+
 /* demo */
 const source = `
 # Hello world
@@ -35,4 +36,3 @@ traverse(ast, {
 
 console.log('── h2 → h1 ──');
 console.log(printMarkdown(ast));
-

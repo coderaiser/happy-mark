@@ -25,6 +25,7 @@ npm i makar --save
 
 ```js
 import {printMarkdown, parseMarkdown} from 'makar';
+import {montag} from 'montag';
 
 const source = montag`
     # hello
@@ -37,6 +38,7 @@ const source = montag`
 `;
 
 const ast = parseMarkdown(source);
+
 print(ast);
 // returns
 `
@@ -58,6 +60,7 @@ printMarkdown(ast);
     \`\`\`
 `;
 ```
+
 ## License
 
 MIT
