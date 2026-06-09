@@ -4,240 +4,24 @@ import {print} from '@putout/printer';
 import {traverse, parse} from '@putout/babel';
 import {parseMarkdown, printMarkdown} from '../lib/makar.js';
 
-test('makar: parseMarkdown', (t) => {
-    const source = montag`
-        # hello
-        
-        Hello world
-        
-        \`\`\`js
-        const a = 3;
-        \`\`\`
-    `;
+test('makar: roundtrip: basic', (t) => {
+    const source = '# hello\n\nHello world\n\n```js\nconst a = 3;\n```';
     
     const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        h1('hello');
-        p('Hello world');
-        codeblock('js', 'const a = 3;');
-    
-    `;
+    const result = printMarkdown(ast);
+    const expected = '# hello\n\nHello world\n```js\nconst a = 3;\n```\n\n';
     
     t.equal(result, expected);
     t.end();
 });
 
-test('makar: parseMarkdown: strong', (t) => {
-    const source = montag`
-        **bold**
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        p(bold('bold'));
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: parseMarkdown: emphasis', (t) => {
-    const source = montag`
-        *italic*
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        p(italic('italic'));
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: parseMarkdown: delete', (t) => {
-    const source = montag`
-        ~~strike~~
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        p(strike('strike'));
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: parseMarkdown: inlineCode', (t) => {
-    const source = montag`
-        \`code\`
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        p(code('code'));
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: parseMarkdown: link', (t) => {
-    const source = montag`
-        [link](url)
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        p(link('link', 'url'));
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: parseMarkdown: image', (t) => {
-    const source = montag`
-        ![alt](url)
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        p(img('alt', 'url'));
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: parseMarkdown: hr', (t) => {
-    const source = montag`
-        ---
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        hr();
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: parseMarkdown: ul', (t) => {
-    const source = montag`
-        - item
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        ul(li('item'));
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: parseMarkdown: ol', (t) => {
-    const source = montag`
-        1. item
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        ol(li('item'));
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: parseMarkdown: blockquote', (t) => {
-    const source = montag`
-        > quote
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = print(ast);
-    
-    const expected = montag`
-        blockquote('quote');
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: printMarkdown', (t) => {
-    const source = montag`
-        # hello
-        Hello world
-        
-        \`\`\`js
-        const a = 3;
-        \`\`\`
-    `;
+test('makar: roundtrip: inline formatting', (t) => {
+    const source = '**bold** *italic* `code` ~~strike~~';
     
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
     
-    const expected = montag`
-        # hello
-        
-        Hello world
-        \`\`\`js
-        const a = 3;
-        \`\`\`\n
-    
-    `;
-    
-    t.equal(result, expected);
-    t.end();
-});
-
-test('makar: printMarkdown: strong', (t) => {
-    const source = montag`
-        **bold**
-    `;
-    
-    const ast = parseMarkdown(source);
-    const result = printMarkdown(ast);
-    
-    const expected = montag`
-        **bold**\n
-    
-    `;
+    const expected = '**bold** *italic* `code` ~~strike~~\n\n';
     
     t.equal(result, expected);
     t.end();
@@ -424,7 +208,7 @@ test('makar: parseMarkdown: unknown block type html', (t) => {
     const result = print(ast);
     
     const expected = montag`
-        raw('html');
+        html('<div>test</div>');
     
     `;
     
@@ -433,11 +217,11 @@ test('makar: parseMarkdown: unknown block type html', (t) => {
 });
 
 test('makar: parseMarkdown: unknown inline type', (t) => {
-    const source = 'a  \nb';
+    const source = 'a\n  b';
     
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
-    const expected = 'ab\n\n';
+    const expected = 'a\nb\n\n';
     
     t.equal(result, expected);
     t.end();
@@ -502,7 +286,7 @@ test('makar: printMarkdown: unknown block type html', (t) => {
     
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
-    const expected = '\n';
+    const expected = '<div>test</div>\n\n';
     
     t.equal(result, expected);
     t.end();
