@@ -25,6 +25,38 @@ npm i makar --save
 
 ```js
 import {printMarkdown, parseMarkdown} from 'makar';
+
+const source = montag`
+    # hello
+    
+    Hello world
+    
+    \`\`\`js
+    const a = 3;
+    \`\`\`
+`;
+
+const ast = parseMarkdown(source);
+print(ast);
+// returns
+`
+    h1('hello');
+    p('Hello world');
+    codeblock('js', 'const a = 3;');
+
+`;
+
+printMarkdown(ast);
+// returns
+`
+    # hello
+    
+    Hello world
+    
+    \`\`\`js
+    const a = 3;
+    \`\`\`
+`;
 ```
 ## License
 
