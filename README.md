@@ -7,8 +7,11 @@
 [LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
 [LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
 
-<img width="846" height="654" alt="image" src="https://github.com/user-attachments/assets/50e973e1-a9c4-4e09-868e-e0f6470116af" />
+> Де макар телят пасе...
+>
+> Far away...
 
+<img width="2560" height="1811" alt="image" src="https://github.com/user-attachments/assets/189eece7-8552-49e7-a5a3-3b29004e2aa6" />
 
 Markdown to JS AST parser.
 
