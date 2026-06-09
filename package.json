@@ -1,0 +1,59 @@
+{
+  "name": "makar",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "markdown to js ast parser",
+  "main": "lib/makar.cjs",
+  "exports": {
+    ".": "./lib/makar.js"
+  },
+  "scripts": {
+    "test": "madrun test",
+    "coverage": "madrun coverage",
+    "lint": "madrun lint",
+    "fix:lint": "madrun fix:lint",
+    "watcher": "madrun watcher",
+    "watch:test": "madrun watch:test",
+    "watch:lint": "madrun watch:lint",
+    "watch:tape": "madrun watch:tape",
+    "watch:coverage:base": "madrun watch:coverage:base",
+    "watch:coverage:tape": "madrun watch:coverage:tape",
+    "watch:coverage": "madrun watch:coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coderaiser/makar.git"
+  },
+  "keywords": [
+    "store",
+    "variable",
+    "functional"
+  ],
+  "author": "coderaiser <mnemonic.enemy@gmail.com> (http://coderaiser.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/coderaiser/makar/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "homepage": "https://github.com/coderaiser/makar",
+  "devDependencies": {
+    "c8": "^11.0.0",
+    "eslint": "^10.0.3",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-putout": "^31.1.1",
+    "madrun": "^13.0.1",
+    "nodemon": "^3.1.11",
+    "putout": "^42.2.3",
+    "superc8": "^12.3.1",
+    "supertape": "^13.2.0"
+  },
+  "dependencies": {
+    "@putout/babel": "^5.7.3",
+    "@putout/printer": "^18.17.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
+  }
+}
