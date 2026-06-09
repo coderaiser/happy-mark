@@ -7,6 +7,9 @@
 [LicenseIMGURL]: https://img.shields.io/badge/license-MIT-317BF9.svg?style=flat
 [LicenseURL]: https://tldrlegal.com/license/mit-license "MIT License"
 
+<img width="846" height="654" alt="image" src="https://github.com/user-attachments/assets/50e973e1-a9c4-4e09-868e-e0f6470116af" />
+
+
 Markdown to JS AST parser.
 
 ## Install
