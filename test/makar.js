@@ -1,6 +1,7 @@
 import {test} from 'supertape';
 import {montag} from 'montag';
 import {print} from '@putout/printer';
+import {traverse, parse} from '@putout/babel';
 import {parseMarkdown, printMarkdown} from '../lib/makar.js';
 
 test('makar: parseMarkdown', (t) => {
@@ -450,13 +451,10 @@ test('makar: printMarkdown: code: no lang', (t) => {
     `;
     
     const ast = parseMarkdown(source);
-    const result = printMarkdown(ast);
+    const result = print(ast);
     
     const expected = montag`
-        \`\`\`
-        code
-        \`\`\`\n
-    
+        codeblock('', 'code');\n
     `;
     
     t.equal(result, expected);
@@ -505,6 +503,31 @@ test('makar: printMarkdown: unknown block type html', (t) => {
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
     const expected = '\n';
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('makar: js -> markdown', (t) => {
+    const source = montag`
+        # hello
+    `;
+    
+    const ast = parseMarkdown(source);
+    
+    traverse(ast, {
+        CallExpression(path) {
+            if (path.node.callee.name === 'h1')
+                path.node.callee.name = 'h2';
+        },
+    });
+    const js = print(ast);
+    const jsAST = parse(js);
+    const result = printMarkdown(jsAST);
+    
+    const expected = montag`
+        ## hello\n
+    `;
     
     t.equal(result, expected);
     t.end();
