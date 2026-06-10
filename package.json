@@ -7,7 +7,7 @@
     ".": "./lib/happy-mark.js"
   },
   "imports": {
-    "#test": "./test/create-test.js",
+    "#test/printer": "./test/create-printer-test.js",
     "#test/parser": "./test/create-parser-test.js",
     "#happy-mark": "./lib/happy-mark.js"
   },
