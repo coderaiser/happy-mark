@@ -12,10 +12,10 @@ export const createTest = (url, options) => {
     return createPutoutTest(url, {
         extension: 'md',
         lint,
-        plugins: [{
-            report: () => '',
+        plugins: [['markdown', {
+            report: noop,
             replace: noop,
-        }],
+        }]],
         ...options,
     });
 };
