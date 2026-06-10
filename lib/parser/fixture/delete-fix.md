@@ -1,0 +1,3 @@
+[
+    p(strike('strike')),
+];
