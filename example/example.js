@@ -1,6 +1,6 @@
 import {print} from '@putout/printer';
 import {traverse} from '@putout/babel';
-import {parseMarkdown, printMarkdown} from '../lib/makar.js';
+import {parseMarkdown, printMarkdown} from '#happy-mark';
 
 /* demo */
 const source = `

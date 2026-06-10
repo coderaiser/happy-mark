@@ -1,7 +1,11 @@
 import {run} from 'madrun';
 
+const env = {
+    UPDATE_EXTENSION: 'js',
+};
+
 export default {
-    'test': () => `tape 'test/*.*' 'lib/**/*.spec.js'`,
+    'test': () => [env, `tape 'test/*.*' 'lib/**/*.spec.js'`],
     'coverage': () => 'c8 npm test',
     'report': () => 'c8 report --reporter=lcov',
     'lint': () => 'putout .',

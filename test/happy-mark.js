@@ -3,9 +3,13 @@ import {test} from 'supertape';
 import {montag} from 'montag';
 import {print} from '@putout/printer';
 import {traverse, parse} from '@putout/babel';
-import {parseMarkdown, printMarkdown} from '../lib/makar.js';
+import {
+    convertMarkdownToJs,
+    parseMarkdown,
+    printMarkdown,
+} from '#happy-mark';
 
-test('makar: roundtrip: basic', (t) => {
+test('happy-mark: roundtrip: basic', (t) => {
     const source = '# hello\n\nHello world\n\n```js\nconst a = 3;\n```';
     
     const ast = parseMarkdown(source);
@@ -16,7 +20,7 @@ test('makar: roundtrip: basic', (t) => {
     t.end();
 });
 
-test('makar: roundtrip: inline formatting', (t) => {
+test('happy-mark: roundtrip: inline formatting', (t) => {
     const source = '**bold** *italic* `code` ~~strike~~';
     
     const ast = parseMarkdown(source);
@@ -28,7 +32,7 @@ test('makar: roundtrip: inline formatting', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: emphasis', (t) => {
+test('happy-mark: printMarkdown: emphasis', (t) => {
     const source = montag`
         *italic*
     `;
@@ -45,7 +49,7 @@ test('makar: printMarkdown: emphasis', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: delete', (t) => {
+test('happy-mark: printMarkdown: delete', (t) => {
     const source = montag`
         ~~strike~~
     `;
@@ -62,7 +66,7 @@ test('makar: printMarkdown: delete', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: inlineCode', (t) => {
+test('happy-mark: printMarkdown: inlineCode', (t) => {
     const source = montag`
         \`code\`
     `;
@@ -79,7 +83,7 @@ test('makar: printMarkdown: inlineCode', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: link', (t) => {
+test('happy-mark: printMarkdown: link', (t) => {
     const source = montag`
         [link](url)
     `;
@@ -96,7 +100,7 @@ test('makar: printMarkdown: link', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: image', (t) => {
+test('happy-mark: printMarkdown: image', (t) => {
     const source = montag`
         ![alt](url)
     `;
@@ -113,7 +117,7 @@ test('makar: printMarkdown: image', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: hr', (t) => {
+test('happy-mark: printMarkdown: hr', (t) => {
     const source = montag`
         ---
     `;
@@ -130,7 +134,7 @@ test('makar: printMarkdown: hr', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: ul', (t) => {
+test('happy-mark: printMarkdown: ul', (t) => {
     const source = montag`
         - item
     `;
@@ -147,7 +151,7 @@ test('makar: printMarkdown: ul', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: ol', (t) => {
+test('happy-mark: printMarkdown: ol', (t) => {
     const source = montag`
         1. item
     `;
@@ -164,7 +168,7 @@ test('makar: printMarkdown: ol', (t) => {
     t.end();
 });
 
-test('makar: parseMarkdown: code: no lang', (t) => {
+test('happy-mark: parseMarkdown: code: no lang', (t) => {
     const source = montag`
         \`\`\`
         code
@@ -183,7 +187,7 @@ test('makar: parseMarkdown: code: no lang', (t) => {
     t.end();
 });
 
-test('makar: parseMarkdown: image: no alt', (t) => {
+test('happy-mark: parseMarkdown: image: no alt', (t) => {
     const source = montag`
         ![](url)
     `;
@@ -200,7 +204,7 @@ test('makar: parseMarkdown: image: no alt', (t) => {
     t.end();
 });
 
-test('makar: parseMarkdown: unknown block type html', (t) => {
+test('happy-mark: parseMarkdown: unknown block type html', (t) => {
     const source = montag`
         <div>test</div>
     `;
@@ -217,7 +221,7 @@ test('makar: parseMarkdown: unknown block type html', (t) => {
     t.end();
 });
 
-test('makar: parseMarkdown: unknown inline type', (t) => {
+test('happy-mark: parseMarkdown: unknown inline type', (t) => {
     const source = 'a\n  b';
     
     const ast = parseMarkdown(source);
@@ -228,7 +232,7 @@ test('makar: parseMarkdown: unknown inline type', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: code: no lang', (t) => {
+test('happy-mark: printMarkdown: code: no lang', (t) => {
     const source = montag`
         \`\`\`
         code
@@ -246,7 +250,7 @@ test('makar: printMarkdown: code: no lang', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: image: no alt', (t) => {
+test('happy-mark: printMarkdown: image: no alt', (t) => {
     const source = montag`
         ![](url)
     `;
@@ -263,7 +267,7 @@ test('makar: printMarkdown: image: no alt', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: blockquote', (t) => {
+test('happy-mark: printMarkdown: blockquote', (t) => {
     const source = montag`
         > quote
     `;
@@ -280,7 +284,7 @@ test('makar: printMarkdown: blockquote', (t) => {
     t.end();
 });
 
-test('makar: printMarkdown: unknown block type html', (t) => {
+test('happy-mark: printMarkdown: unknown block type html', (t) => {
     const source = montag`
         <div>test</div>
     `;
@@ -293,7 +297,7 @@ test('makar: printMarkdown: unknown block type html', (t) => {
     t.end();
 });
 
-test('makar: js -> markdown', (t) => {
+test('happy-mark: js -> markdown', (t) => {
     const source = montag`
         # hello
     `;
@@ -318,7 +322,7 @@ test('makar: js -> markdown', (t) => {
     t.end();
 });
 
-test('makar: end of file', (t) => {
+test('happy-mark: end of file', (t) => {
     const source = montag`
         ## License
         
@@ -332,7 +336,7 @@ test('makar: end of file', (t) => {
     t.end();
 });
 
-test('makar: badges', (t) => {
+test('happy-mark: badges', (t) => {
     const source = montag`
         # Hello [![License][NPMURL]][NPMIMGURL]
         
@@ -348,12 +352,33 @@ test('makar: badges', (t) => {
     t.end();
 });
 
-test('makar: readme', (t) => {
+test('happy-mark: readme', (t) => {
     const source = readFileSync(new URL('../README.md', import.meta.url).pathname, 'utf8');
     
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
     
     t.equal(result, source);
+    t.end();
+});
+
+test('happy-mark: readme', (t) => {
+    const source = montag`
+        # hello
+        
+        world
+    `;
+    
+    const result = convertMarkdownToJs(source);
+    
+    const expected = montag`
+        [
+            h1('hello'),
+            p('world'),
+        ];
+   
+   `;
+    
+    t.equal(result, expected);
     t.end();
 });
