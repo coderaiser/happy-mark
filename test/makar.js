@@ -1,8 +1,14 @@
+import {readFileSync} from 'node:fs';
+import {join, dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {test} from 'supertape';
 import {montag} from 'montag';
 import {print} from '@putout/printer';
 import {traverse, parse} from '@putout/babel';
 import {parseMarkdown, printMarkdown} from '../lib/makar.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 test('makar: roundtrip: basic', (t) => {
     const source = '# hello\n\nHello world\n\n```js\nconst a = 3;\n```';
@@ -314,5 +320,35 @@ test('makar: js -> markdown', (t) => {
     `;
     
     t.equal(result, expected);
+    t.end();
+});
+
+test('makar: end of file', (t) => {
+    const source = montag`
+        ## License
+        
+        MIT\n
+    `;
+    
+    const ast = parseMarkdown(source);
+    const result = printMarkdown(ast);
+    
+    t.equal(result, source);
+    t.end();
+});
+
+test('makar: badges', (t) => {
+    const source = montag`
+        # Hello [![License][NPMURL]][NPMIMGURL]
+        
+        [NPMURL]: https://npmjs.org/package/hello "npm"
+        [NPMIMGURL]: https://img.shields.io/npm/v/hello.svg?style=flat
+    
+    `;
+    
+    const ast = parseMarkdown(source);
+    const result = printMarkdown(ast);
+    
+    t.equal(result, source);
     t.end();
 });
