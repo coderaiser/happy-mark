@@ -1,14 +1,9 @@
 import {readFileSync} from 'node:fs';
-import {join, dirname} from 'node:path';
-import {fileURLToPath} from 'node:url';
 import {test} from 'supertape';
 import {montag} from 'montag';
 import {print} from '@putout/printer';
 import {traverse, parse} from '@putout/babel';
 import {parseMarkdown, printMarkdown} from '../lib/makar.js';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 test('makar: roundtrip: basic', (t) => {
     const source = '# hello\n\nHello world\n\n```js\nconst a = 3;\n```';
@@ -353,7 +348,7 @@ test('makar: badges', (t) => {
     t.end();
 });
 
-test.only('makar: readme', (t) => {
+test('makar: readme', (t) => {
     const source = readFileSync(new URL('../README.md', import.meta.url).pathname, 'utf8');
     
     const ast = parseMarkdown(source);
@@ -362,4 +357,3 @@ test.only('makar: readme', (t) => {
     t.equal(result, source);
     t.end();
 });
-
