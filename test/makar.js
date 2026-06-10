@@ -352,3 +352,14 @@ test('makar: badges', (t) => {
     t.equal(result, source);
     t.end();
 });
+
+test.only('makar: readme', (t) => {
+    const source = readFileSync(new URL('../README.md', import.meta.url).pathname, 'utf8');
+    
+    const ast = parseMarkdown(source);
+    const result = printMarkdown(ast);
+    
+    t.equal(result, source);
+    t.end();
+});
+
