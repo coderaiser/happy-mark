@@ -1,3 +1,13 @@
+2026.06.11, v1.0.1
+
+fix:
+- f783438 dependencies: frontmatter
+- 9999113 printer: link
+
+feature:
+- 6ec5053 happy-mark: move out img
+- b8c34ea happy-mark: improve testing
+
 2026.03.18, v4.0.2
 
 fix:
