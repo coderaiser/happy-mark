@@ -14,7 +14,7 @@ test('happy-mark: roundtrip: basic', (t) => {
     
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
-    const expected = '# hello\n\nHello world\n```js\nconst a = 3;\n```\n\n';
+    const expected = '# hello\n\nHello world\n```js\nconst a = 3;\n```\n';
     
     t.equal(result, expected);
     t.end();
@@ -26,7 +26,7 @@ test('happy-mark: roundtrip: inline formatting', (t) => {
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
     
-    const expected = '**bold** *italic* `code` ~~strike~~\n\n';
+    const expected = '**bold** *italic* `code` ~~strike~~\n';
     
     t.equal(result, expected);
     t.end();
@@ -42,7 +42,6 @@ test('happy-mark: printMarkdown: emphasis', (t) => {
     
     const expected = montag`
         *italic*\n
-    
     `;
     
     t.equal(result, expected);
@@ -59,7 +58,6 @@ test('happy-mark: printMarkdown: delete', (t) => {
     
     const expected = montag`
         ~~strike~~\n
-    
     `;
     
     t.equal(result, expected);
@@ -76,7 +74,6 @@ test('happy-mark: printMarkdown: inlineCode', (t) => {
     
     const expected = montag`
         \`code\`\n
-    
     `;
     
     t.equal(result, expected);
