@@ -42,10 +42,11 @@ const ast = parseMarkdown(source);
 print(ast);
 // returns
 `
-    h1('hello');
-    p('Hello world');
-    codeblock('js', 'const a = 3;');
-
+[
+    h1('hello'),
+    p('Hello world'),
+    codeblock('js', 'const a = 3;'),
+];
 `;
 
 printMarkdown(ast);
