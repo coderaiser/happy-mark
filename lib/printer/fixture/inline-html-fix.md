@@ -1,3 +1,5 @@
-text <span>
-inline</span>
+text 
+<span>
+inline
+</span>
  end

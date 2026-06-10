@@ -93,7 +93,6 @@ test('happy-mark: printMarkdown: link', (t) => {
     
     const expected = montag`
         [link](url)\n
-    
     `;
     
     t.equal(result, expected);
@@ -110,7 +109,6 @@ test('happy-mark: printMarkdown: image', (t) => {
     
     const expected = montag`
         ![alt](url)\n
-    
     `;
     
     t.equal(result, expected);
@@ -127,7 +125,6 @@ test('happy-mark: printMarkdown: hr', (t) => {
     
     const expected = montag`
         ---\n
-    
     `;
     
     t.equal(result, expected);
@@ -179,7 +176,9 @@ test('happy-mark: parseMarkdown: code: no lang', (t) => {
     const result = print(ast);
     
     const expected = montag`
-        codeblock('', 'code');
+        [
+            codeblock('', 'code'),
+        ];
     
     `;
     
@@ -196,8 +195,9 @@ test('happy-mark: parseMarkdown: image: no alt', (t) => {
     const result = print(ast);
     
     const expected = montag`
-        p(img('', 'url'));
-    
+        [
+            p(img('', 'url')),
+        ];\n
     `;
     
     t.equal(result, expected);
@@ -213,8 +213,9 @@ test('happy-mark: parseMarkdown: unknown block type html', (t) => {
     const result = print(ast);
     
     const expected = montag`
-        html('<div>test</div>');
-    
+        [
+            html('<div>test</div>'),
+        ];\n
     `;
     
     t.equal(result, expected);
@@ -226,7 +227,7 @@ test('happy-mark: parseMarkdown: unknown inline type', (t) => {
     
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
-    const expected = 'a\nb\n\n';
+    const expected = 'a\nb\n';
     
     t.equal(result, expected);
     t.end();
@@ -243,7 +244,9 @@ test('happy-mark: printMarkdown: code: no lang', (t) => {
     const result = print(ast);
     
     const expected = montag`
-        codeblock('', 'code');\n
+        [
+            codeblock('', 'code'),
+        ];\n
     `;
     
     t.equal(result, expected);
@@ -260,7 +263,6 @@ test('happy-mark: printMarkdown: image: no alt', (t) => {
     
     const expected = montag`
         ![](url)\n
-    
     `;
     
     t.equal(result, expected);
@@ -277,7 +279,6 @@ test('happy-mark: printMarkdown: blockquote', (t) => {
     
     const expected = montag`
         > quote\n
-    
     `;
     
     t.equal(result, expected);
@@ -315,7 +316,7 @@ test('happy-mark: js -> markdown', (t) => {
     const result = printMarkdown(jsAST);
     
     const expected = montag`
-        ## hello\n
+        ## hello\n\n
     `;
     
     t.equal(result, expected);
@@ -362,7 +363,7 @@ test('happy-mark: readme', (t) => {
     t.end();
 });
 
-test('happy-mark: readme', (t) => {
+test('happy-mark: convertMarkdownToJs', (t) => {
     const source = montag`
         # hello
         
