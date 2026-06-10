@@ -3,11 +3,15 @@ import {test} from 'supertape';
 import {montag} from 'montag';
 import {print} from '@putout/printer';
 import {traverse, parse} from '@putout/babel';
+import {tryCatch} from 'try-catch';
+import * as babel from '@putout/babel';
 import {
     convertMarkdownToJs,
     parseMarkdown,
     printMarkdown,
 } from '#happy-mark';
+
+const {types} = babel;
 
 test('happy-mark: roundtrip: basic', (t) => {
     const source = '# hello\n\nHello world\n\n```js\nconst a = 3;\n```';
@@ -360,6 +364,47 @@ test('happy-mark: readme', (t) => {
     t.end();
 });
 
+test('happy-mark: printMarkdown: link with title', (t) => {
+    const source = '[text](url "title")';
+
+    const ast = parseMarkdown(source);
+    const result = printMarkdown(ast);
+
+    const expected = '[text](url "title")\n';
+
+    t.equal(result, expected);
+    t.end();
+});
+
+test('happy-mark: printMarkdown: raw handler', (t) => {
+    const ast = types.file(types.program([
+        types.expressionStatement(types.arrayExpression([
+            types.callExpression(types.identifier('raw'), [
+                types.stringLiteral('someType'),
+            ]),
+        ])),
+    ]));
+
+    const result = printMarkdown(ast);
+    const expected = 'someType\n';
+
+    t.equal(result, expected);
+    t.end();
+});
+
+test('happy-mark: printMarkdown: error on unknown', (t) => {
+    const ast = types.file(types.program([
+        types.expressionStatement(types.arrayExpression([
+            types.callExpression(types.identifier('unknownBlock'), []),
+        ])),
+    ]));
+
+    const [error] = tryCatch(printMarkdown, ast);
+    
+    t.match(error.message, /not supported yet/);
+    t.end();
+});
+
 test('happy-mark: convertMarkdownToJs', (t) => {
     const source = montag`
         # hello
@@ -375,7 +420,7 @@ test('happy-mark: convertMarkdownToJs', (t) => {
             p('world'),
         ];
    
-   `;
+    `;
     
     t.equal(result, expected);
     t.end();

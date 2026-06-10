@@ -53,6 +53,7 @@
     "montag": "^2.0.1",
     "nodemon": "^3.1.11",
     "putout": "^42.2.3",
+    "remark-frontmatter": "^5.0.0",
     "superc8": "^12.7.0",
     "supertape": "^13.2.0",
     "try-catch": "^4.0.9"
