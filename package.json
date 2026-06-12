@@ -14,7 +14,9 @@
     "#printer/test": "./test/create-printer-test.js",
     "#parser/test": "./test/create-parser-test.js",
     "#happy-mark": "./lib/happy-mark.js",
-    "#create-string-literal": "./lib/parser/creators/create-string-literal.js"
+    "#create-string-literal": "./lib/parser/creators/create-string-literal.js",
+    "#indent": "./lib/parser/creators/indent.js",
+    "#dedent": "./lib/parser/creators/dedent.js"
   },
   "scripts": {
     "test": "madrun test",

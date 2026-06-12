@@ -229,8 +229,8 @@ test('happy-mark: parseMarkdown: unknown block type html', (t) => {
 
 test('happy-mark: parseMarkdown: unknown inline type', (t) => {
     const source = 'a\n  b';
-    
     const ast = parseMarkdown(source);
+    
     const result = printMarkdown(ast);
     const expected = 'a\nb\n';
     

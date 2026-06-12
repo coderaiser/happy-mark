@@ -8,10 +8,10 @@
 <details><summary>remove <code>unused variables</code></summary>
 
 ```diff
-  function show() {
--     const message = 'hello';
-      console.log('hello world');
-  }
+function show() {
+-   const message = 'hello';
+    console.log('hello world');
+}
 ```
 
 </details>
