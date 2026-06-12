@@ -1,3 +1,8 @@
+2026.06.12, v1.0.2
+
+feature:
+- 5c92341 happy-mark: parser: image-reference: move out
+
 2026.06.11, v1.0.1
 
 fix:
