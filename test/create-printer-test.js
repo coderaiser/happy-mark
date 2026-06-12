@@ -3,10 +3,15 @@ import {parseMarkdown, printMarkdown} from '#happy-mark';
 
 const noop = () => {};
 
-const lint = (source) => ({
-    code: printMarkdown(parseMarkdown(source)),
-    places: [],
-});
+const lint = (source) => {
+    const ast = parseMarkdown(source);
+    const code = printMarkdown(ast);
+    
+    return {
+        code,
+        places: [],
+    };
+};
 
 export const createTest = (url, options) => {
     return createPutoutTest(url, {

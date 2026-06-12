@@ -13,7 +13,8 @@
     "#parser/inline": "./lib/parser/visitors/inline/inline.js",
     "#printer/test": "./test/create-printer-test.js",
     "#parser/test": "./test/create-parser-test.js",
-    "#happy-mark": "./lib/happy-mark.js"
+    "#happy-mark": "./lib/happy-mark.js",
+    "#create-string-literal": "./lib/parser/creators/create-string-literal.js"
   },
   "scripts": {
     "test": "madrun test",
