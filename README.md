@@ -20,9 +20,10 @@ npm i happy-mark --save
 ## How to use?
 
 ```js
-import {printMarkdown, parseMarkdown} from 'happy-mark';
-import {montag} from 'montag';
-import {print} from 'putout';
+import {
+    convertMarkdownToJs,
+    convertJsToMarkdown,
+} from 'happy-mark';
 
 const source = montag`
     # hello
@@ -34,9 +35,7 @@ const source = montag`
     \`\`\`
 `;
 
-const ast = parseMarkdown(source);
-
-print(ast);
+const js = convertMarkdownToJs(source);
 // returns
 `
 [
@@ -46,7 +45,7 @@ print(ast);
 ];
 `;
 
-printMarkdown(ast);
+convertJsToMarkdown(js);
 // returns
 `
     # hello

@@ -5,6 +5,7 @@ import {print} from '@putout/printer';
 import {tryCatch} from 'try-catch';
 import * as babel from '@putout/babel';
 import {
+    convertJsToMarkdown,
     convertMarkdownToJs,
     parseMarkdown,
     printMarkdown,
@@ -422,6 +423,27 @@ test('happy-mark: convertMarkdownToJs', (t) => {
             h1('hello'),
             p('world'),
         ];
+    
+    `;
+    
+    t.equal(result, expected);
+    t.end();
+});
+
+test('happy-mark: convertJsToMarkdown', (t) => {
+    const source = montag`
+        [
+            h1('hello'),
+            p('world'),
+        ];
+    `;
+    
+    const result = convertJsToMarkdown(source);
+    
+    const expected = montag`
+        # hello
+        
+        world
     
     `;
     
