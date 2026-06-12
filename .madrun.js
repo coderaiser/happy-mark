@@ -6,6 +6,7 @@ export default {
     'report': () => 'c8 report --reporter=lcov',
     'lint': () => 'putout .',
     'fix:lint': () => run('lint', '--fix'),
+    'postfix:lint': () => 'redlint fix',
     'watcher': () => 'nodemon -w test -w lib --exec',
     'watch:test': () => run('watcher', 'npm test'),
     'watch:lint': async () => await run('watcher', `'npm run lint'`),

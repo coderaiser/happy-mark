@@ -16,6 +16,7 @@
   "scripts": {
     "test": "madrun test",
     "coverage": "madrun coverage",
+    "report": "madrun report",
     "lint": "madrun lint",
     "fix:lint": "madrun fix:lint",
     "watcher": "madrun watcher",
@@ -55,6 +56,7 @@
     "montag": "^2.0.1",
     "nodemon": "^3.1.11",
     "putout": "^42.2.3",
+    "redlint": "^6.9.2",
     "superc8": "^12.7.0",
     "supertape": "^13.2.0",
     "try-catch": "^4.0.9"
