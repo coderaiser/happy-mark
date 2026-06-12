@@ -1,3 +1,17 @@
+2026.06.12, v1.0.4
+
+feature:
+- da1cb59 html: multiline
+- 561d420 happy-mark: parser: html: move out
+- 5fdf215 happy-mark: parser: move out
+- e5423e7 happy-mark: create-string-literal
+- 0ca847c happy-mark: blockquote: move out
+- 3f93f28 happy-mark: parser: move out code
+- 4a506fd parser: move out code
+- c13c53b happy-mark: yaml-multiline
+- ef6cb5e parser: yaml: move out
+- 0bee155 yaml support
+
 2026.06.12, v1.0.3
 
 fix:
