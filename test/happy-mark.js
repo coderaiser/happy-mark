@@ -2,7 +2,6 @@ import {readFileSync} from 'node:fs';
 import {test} from 'supertape';
 import {montag} from 'montag';
 import {print} from '@putout/printer';
-import {traverse, parse} from '@putout/babel';
 import {tryCatch} from 'try-catch';
 import * as babel from '@putout/babel';
 import {
@@ -11,7 +10,11 @@ import {
     printMarkdown,
 } from '#happy-mark';
 
-const {types} = babel;
+const {
+    traverse,
+    parse,
+    types,
+} = babel;
 
 test('happy-mark: roundtrip: basic', (t) => {
     const source = '# hello\n\nHello world\n\n```js\nconst a = 3;\n```';
@@ -366,12 +369,12 @@ test('happy-mark: readme', (t) => {
 
 test('happy-mark: printMarkdown: link with title', (t) => {
     const source = '[text](url "title")';
-
+    
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
-
+    
     const expected = '[text](url "title")\n';
-
+    
     t.equal(result, expected);
     t.end();
 });
@@ -384,10 +387,10 @@ test('happy-mark: printMarkdown: raw handler', (t) => {
             ]),
         ])),
     ]));
-
+    
     const result = printMarkdown(ast);
     const expected = 'someType\n';
-
+    
     t.equal(result, expected);
     t.end();
 });
@@ -398,10 +401,10 @@ test('happy-mark: printMarkdown: error on unknown', (t) => {
             types.callExpression(types.identifier('unknownBlock'), []),
         ])),
     ]));
-
+    
     const [error] = tryCatch(printMarkdown, ast);
     
-    t.match(error.message, /not supported yet/);
+    t.match(error.message, 'not supported yet');
     t.end();
 });
 
@@ -419,7 +422,7 @@ test('happy-mark: convertMarkdownToJs', (t) => {
             h1('hello'),
             p('world'),
         ];
-   
+    
     `;
     
     t.equal(result, expected);

@@ -23,9 +23,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install Redrun
-        run: bun install redrun madrun -g --no-save
+        run: bun install redrun madrun madrun -g --no-save
       - name: Install
         run: bun i -f --no-save
+      - name: Init Madrun
+        run: madrun --init
       - name: Init
         run: madrun --init
       - name: Lint
