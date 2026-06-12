@@ -9,6 +9,8 @@
   "imports": {
     "#printer": "./lib/printer/printer.js",
     "#parser": "./lib/parser/parser.js",
+    "#parser/block": "./lib/parser/visitors/block/block.js",
+    "#parser/inline": "./lib/parser/visitors/inline/inline.js",
     "#printer/test": "./test/create-printer-test.js",
     "#parser/test": "./test/create-parser-test.js",
     "#happy-mark": "./lib/happy-mark.js"
