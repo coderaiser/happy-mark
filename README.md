@@ -24,6 +24,7 @@ import {
     convertMarkdownToJs,
     convertJsToMarkdown,
 } from 'happy-mark';
+import {montag} from 'montag';
 
 const source = montag`
     # hello
@@ -36,6 +37,7 @@ const source = montag`
 `;
 
 const js = convertMarkdownToJs(source);
+
 // returns
 `
 [
