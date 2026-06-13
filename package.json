@@ -7,7 +7,7 @@
     ".": "./lib/happy-mark.js"
   },
   "bin": {
-    "happy-mark": "./bin/happy-mark.js"
+    "happy-mark": "bin/happy-mark.js"
   },
   "imports": {
     "#printer": "./lib/printer/printer.js",

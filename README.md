@@ -21,7 +21,7 @@ npm i happy-mark --save
 
 ### Binary
 
-```shell
+```sh
 cat README.md | happy-mark
 ```
 
