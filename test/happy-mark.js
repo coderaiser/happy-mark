@@ -22,7 +22,7 @@ test('happy-mark: roundtrip: basic', (t) => {
     
     const ast = parseMarkdown(source);
     const result = printMarkdown(ast);
-    const expected = '# hello\n\nHello world\n```js\nconst a = 3;\n```\n';
+    const expected = '# hello\n\nHello world\n\n```js\nconst a = 3;\n```\n';
     
     t.equal(result, expected);
     t.end();
