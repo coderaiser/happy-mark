@@ -1,3 +1,3 @@
 [
-    blockquote('quote'),
+    blockquote(p('quote')),
 ];

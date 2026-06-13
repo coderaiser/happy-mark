@@ -1,3 +1,3 @@
 [
-    blockquote('hello', 'world'),
+    blockquote(p('hello'), p('world')),
 ];
