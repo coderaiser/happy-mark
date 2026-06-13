@@ -321,7 +321,7 @@ test('happy-mark: js -> markdown', (t) => {
     const result = printMarkdown(jsAST);
     
     const expected = montag`
-        ## hello\n\n
+        ## hello\n
     `;
     
     t.equal(result, expected);
