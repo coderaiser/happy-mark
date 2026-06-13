@@ -1,3 +1,10 @@
+2026.06.13, v1.0.7
+
+feature:
+- bb601c2 happy-mark: printer: heading: multiple
+- 2fdf635 happy-mark: printer: move out heading
+- 229a9f2 happy-mark: bin
+
 2026.06.13, v1.0.6
 
 feature:
