@@ -1,3 +1,8 @@
+2026.06.14, v1.0.8
+
+fix:
+- 15e23ac happy-mark: def -> definition
+
 2026.06.13, v1.0.7
 
 feature:
