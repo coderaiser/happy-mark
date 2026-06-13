@@ -6,6 +6,9 @@
   "exports": {
     ".": "./lib/happy-mark.js"
   },
+  "bin": {
+    "happy-mark": "./bin/happy-mark.js"
+  },
   "imports": {
     "#printer": "./lib/printer/printer.js",
     "#parser": "./lib/parser/parser.js",
@@ -67,9 +70,10 @@
     "try-catch": "^4.0.9"
   },
   "dependencies": {
-    "remark-frontmatter": "^5.0.0",
     "@putout/babel": "^5.7.3",
     "@putout/printer": "^18.17.0",
+    "redstd": "^1.0.2",
+    "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
     "remark-parse": "^11.0.0",
     "unified": "^11.0.5"

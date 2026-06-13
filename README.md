@@ -19,6 +19,14 @@ npm i happy-mark --save
 
 ## How to use?
 
+### Binary
+
+```shell
+cat README.md | happy-mark
+```
+
+### API
+
 ```js
 import {
     convertMarkdownToJs,
