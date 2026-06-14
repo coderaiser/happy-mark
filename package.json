@@ -11,6 +11,7 @@
   },
   "imports": {
     "#printer": "./lib/printer/printer.js",
+    "#printer/is": "./lib/printer/visitors/call-expression/is.js",
     "#parser": "./lib/parser/parser.js",
     "#parser/block": "./lib/parser/visitors/block/block.js",
     "#parser/inline": "./lib/parser/visitors/inline/inline.js",

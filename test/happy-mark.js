@@ -312,8 +312,8 @@ test('happy-mark: js -> markdown', (t) => {
     
     traverse(ast, {
         CallExpression(path) {
-            if (path.node.callee.name === 'h1')
-                path.node.callee.name = 'h2';
+            if (path.node.callee.name === 'heading')
+                path.node.arguments[0].value = 2;
         },
     });
     const js = print(ast);
@@ -420,7 +420,7 @@ test('happy-mark: convertMarkdownToJs', (t) => {
     
     const expected = montag`
         [
-            h1('hello'),
+            heading(1, 'hello'),
             paragraph('world'),
         ];
     
@@ -433,7 +433,7 @@ test('happy-mark: convertMarkdownToJs', (t) => {
 test('happy-mark: convertJsToMarkdown', (t) => {
     const source = montag`
         [
-            h1('hello'),
+            heading(1, 'hello'),
             paragraph('world'),
         ];
     `;

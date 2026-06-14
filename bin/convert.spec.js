@@ -7,7 +7,7 @@ import {
 import {convert} from './convert.js';
 
 test('happy-mark: bin: convert: js: [', (t) => {
-    const result = convert(`[h1('hello')]`);
+    const result = convert(`[heading(1, 'hello')]`);
     const expected = montag`
         # hello\n
     `;
@@ -17,7 +17,7 @@ test('happy-mark: bin: convert: js: [', (t) => {
 });
 
 test('happy-mark: bin: convert: js: __putout_processor_markdown', (t) => {
-    const js = toJS(`[h1('hello')]`, __markdown_name);
+    const js = toJS(`[heading(1, 'hello')]`, __markdown_name);
     
     const result = convert(js);
     const expected = montag`
@@ -37,7 +37,7 @@ test('happy-mark: bin: convert: markdown: __putout_processor_markdown', (t) => {
     
     const expected = montag`
         [
-            h1('hello'),
+            heading(1, 'hello'),
         ];\n
     `;
     
