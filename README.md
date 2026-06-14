@@ -25,6 +25,12 @@ npm i happy-mark --save
 cat README.md | happy-mark
 ```
 
+For full loop use (format detected automatically):
+
+```sh
+cat README.md | happy-mark | happy-mark
+```
+
 ### API
 
 ```js
