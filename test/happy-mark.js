@@ -201,7 +201,7 @@ test('happy-mark: parseMarkdown: image: no alt', (t) => {
     
     const expected = montag`
         [
-            p(img('', 'url')),
+            p(image('', 'url')),
         ];\n
     `;
     
