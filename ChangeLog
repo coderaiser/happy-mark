@@ -1,3 +1,10 @@
+2026.06.14, v1.0.12
+
+feature:
+- 74ab21c img -> image
+- 5bded77 happy-mark: imgRef -> imageReference
+- bf3a107 happy-mark: linkRef -> linkReference
+
 2026.06.14, v1.0.11
 
 fix:
