@@ -2,7 +2,9 @@
 
 import process from 'node:process';
 import {readStdin} from 'redstd';
-import {convertMarkdownToJs} from '#happy-mark';
+import {convert} from './convert.js';
 
-const markdown = await readStdin();
-process.stdout.write(convertMarkdownToJs(markdown));
+const {stdout} = process;
+const source = await readStdin();
+
+stdout.write(convert(source));
