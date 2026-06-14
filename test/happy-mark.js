@@ -201,7 +201,7 @@ test('happy-mark: parseMarkdown: image: no alt', (t) => {
     
     const expected = montag`
         [
-            p(image('', 'url')),
+            paragraph(image('', 'url')),
         ];\n
     `;
     
@@ -421,7 +421,7 @@ test('happy-mark: convertMarkdownToJs', (t) => {
     const expected = montag`
         [
             h1('hello'),
-            p('world'),
+            paragraph('world'),
         ];
     
     `;
@@ -434,7 +434,7 @@ test('happy-mark: convertJsToMarkdown', (t) => {
     const source = montag`
         [
             h1('hello'),
-            p('world'),
+            paragraph('world'),
         ];
     `;
     
