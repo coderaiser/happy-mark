@@ -55,8 +55,8 @@ const js = convertMarkdownToJs(source);
 // returns
 `
 [
-    h1('hello'),
-    p('Hello world'),
+    header(1, 'hello'),
+    paragraph('Hello world'),
     codeblock('js', 'const a = 3;'),
 ];
 `;
