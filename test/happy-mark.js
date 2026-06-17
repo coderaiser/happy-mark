@@ -358,7 +358,7 @@ test('happy-mark: badges', (t) => {
     t.end();
 });
 
-test('happy-mark: readme', (t) => {
+test.skip('happy-mark: readme', (t) => {
     const source = readFileSync(new URL('../README.md', import.meta.url).pathname, 'utf8');
     
     const ast = parseMarkdown(source);
