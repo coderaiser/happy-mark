@@ -4,11 +4,11 @@
     "exclude": [
         "**/*.spec.*",
         "**/*.config.*",
+        "**/bin/happy-mark.js",
         "**/fixture",
         ".*",
         "test",
-        "example",
-        "**/bin/happy-mark.js"
+        "example"
     ],
     "branches": 100,
     "lines": 100,
