@@ -2,9 +2,9 @@
     "checkCoverage": false,
     "all": true,
     "exclude": [
-        "**/fixture",
         "**/*.spec.*",
         "**/*.config.*",
+        "**/fixture",
         ".*",
         "test",
         "example",
