@@ -1,3 +1,18 @@
+2026.06.17, v1.3.0
+
+fix:
+- 77dd6bc happy-mark: table: parser: separator
+- f8a4d6b parser: table
+
+feature:
+- c3c910f parser: inline-code: move out
+- 6a03c3b printer: header: simplify
+- e7c8862 printer: table: indent
+- 1dc56f8 tr, td: move out
+- f3fa81e parser: table: array
+- a6ac2fc printer: table: move out
+- 374e561 happy-mark: parse: table: move out
+
 2026.06.15, v1.2.0
 
 feature:
