@@ -47,7 +47,6 @@ Happy Mark converts Markdown to JavaScript this way:
 | `![alt](url)`         | `paragraph(image('alt', 'url'))`  |
 | `[text](url)`         | `link('text', 'url')`             |
 
-
 ### API
 
 ```js
