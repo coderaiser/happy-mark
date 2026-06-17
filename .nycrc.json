@@ -8,7 +8,7 @@
         ".*",
         "test",
         "example",
-        "bin"
+        "**/bin/happy-mark.js"
     ],
     "branches": 100,
     "lines": 100,
