@@ -1,5 +1,5 @@
 | Markdown       | Becomes                          |
-| -------------- | -------------------------------- |
+|----------------|----------------------------------|
 | `# Heading`    | `heading(1, 'Heading')`          |
 | `Some text`    | `paragraph('Some text')`         |
 | `**bold**`     | `paragraph(bold('bold'))`        |
