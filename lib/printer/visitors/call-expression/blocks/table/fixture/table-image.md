@@ -1,3 +1,3 @@
-| image | text |
+| image | link |
 | --- | --- |
-| ![alt](url) | more |
+| ![alt](url) | [text](url) |
