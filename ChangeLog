@@ -1,3 +1,9 @@
+2026.06.18, v1.4.0
+
+feature:
+- 731d185 happy-mark: parser: list-item: block
+- 7f50655 parser: inline-code: spaces
+
 2026.06.17, v1.3.0
 
 fix:
