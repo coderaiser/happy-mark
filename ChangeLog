@@ -1,3 +1,9 @@
+2026.06.20, v1.5.0
+
+feature:
+- 3ebc1aa happy-mark: table: improve support
+- 1315b09 printer: blocks: code: move out
+
 2026.06.18, v1.4.0
 
 feature:
