@@ -9,7 +9,7 @@ maxAge=86400)](https://www.npmjs.com/package/@putout/operator-declare) |
 | [`@putout/operator-filesystem`](/packages/operator-filesystem#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-files
 stem.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-filesystem) |
 | [`@putout/operator-find-file-up`](/packages/operator-find-file-up#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-f
-nd-file-up.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-find-file-up) |
+and-file-up.svg?maxAge=86400)](https://www.npmjs.com/package/@putout/operator-find-file-up) |
 | [`@putout/operator-ignore`](/packages/operator-ignore#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-ignore.svg?ma
 Age=86400)](https://www.npmjs.com/package/@putout/operator-ignore) |
 | [`@putout/operator-json`](/packages/operator-json#readme) | [![npm](https://img.shields.io/npm/v/@putout/operator-json.svg?maxAge=8
