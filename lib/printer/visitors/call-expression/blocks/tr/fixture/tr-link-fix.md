@@ -1,4 +1,3 @@
 | A | B    |
 |---|------|
-| [text](url)  | more |
-
+| [text](url) | more |
