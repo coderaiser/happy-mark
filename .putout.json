@@ -1,8 +1,7 @@
 {
     "rules": {
         "printer": "on",
-        "putout": "on",
-        "tape/remove-skip": "off"
+        "putout": "on"
     },
     "match": {
         "example": {
