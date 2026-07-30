@@ -2,7 +2,7 @@
 
 feature:
 - f99d9dd inline-code: multiline
-- 6ba9474 happy-mark: printer: ul: \n -> newline
+- 6be9474 happy-mark: printer: ul: \n -> newline
 
 2026.06.21, v1.7.0
 
