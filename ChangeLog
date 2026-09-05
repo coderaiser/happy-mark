@@ -1,3 +1,8 @@
+2026.09.06, v1.9.0
+
+feature:
+- 6f5a674 happy-mark: printer: CallExpression: blockquote: list
+
 2026.09.06, v1.8.0
 
 feature:
